@@ -2,7 +2,7 @@
 from sklearn import tree
 import pandas as pd
 
-# Sample dataset: Features of different species (e.g., size, color, habitat)
+# Sample dataset: Features of different species
 # Replace this with your actual data
 data = {
     'Ear Size': [2.4, 0.13, 4.0],
@@ -31,7 +31,6 @@ def predict_species(new_features):
     prediction = classifier.predict([new_features])
     return prediction[0]
 
-# Example usage of the function
 # Replace the list with actual features to get the species prediction
 example_features = [2.4, 27.0, 0.17, 1.5]  # Example feature set
 print('The predicted species is: ',predict_species(example_features))
@@ -51,18 +50,17 @@ plant_feature = df[['Stem Width', 'Stem Length', 'Root Length', 'Leaf Size']]
 plant_target = df['Endangered Plants']
 
 # Initialize the decision tree classifier
-classifier = tree.DecisionTreeClassifier()
+classi_fier = tree.DecisionTreeClassifier()
 
 # Train the classifier with the dataset
-classifier.fit(plant_feature, plant_target)
+classi_fier.fit(plant_feature, plant_target)
 
 # Function to predict the species
 def predict_plant(new_plant):
     # The new_features should be a list of features
-    plant_prediction = classifier.predict([new_plant])
+    plant_prediction = classi_fier.predict([new_plant])
     return plant_prediction[0]
 
-# Example usage of the function
 # Replace the list with actual features to get the species prediction
 example_plants = [0.05, 2.2, 1.5, 0.4]  # Example feature set
 print('The predicted Endangered Plant is: ',predict_plant(example_plants))
